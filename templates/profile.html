@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block cssblock %}
+<link href="../static/css/profile.css" rel="stylesheet">
+{% endblock %}
 
+{% block xblock %}
+<link href="../static/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+<script src="../static/bootstrap-editable/js/bootstrap-editable.min.js"></script>
+<script src="../static/main.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -75,10 +81,4 @@
     </div>
 
   </div>
-{% endblock %}
-
-{% block script %}
-<!--Editable links-->
-
-
 {% endblock %}
