@@ -65,6 +65,7 @@
 {% endblock %}
 
 {% block content %}
+
 <main>
 <div class="container">
   <div class="charts text-center">
@@ -76,6 +77,7 @@
     </div>
   </div>
   <div class="flexc container">
+
     {% for policy in current_policies %}
       {% if policy["status"] == "Covered" %}
         <span id={{policy["id"]}} class="tippy item covered text-center">
@@ -133,13 +135,91 @@
         </div>
         </div>
     {% endfor %}
-
     <script type="text/javascript">
       {% for policy in current_policies %}
         {% set pid = "#" + policy["id"] %}
         $(document).ready(function() {
           Tipped.create('{{pid}}', {
                 inline: '{{policy["id2"]}}',
+                skin: 'light',
+                radius: false,
+                padding: false,
+                position: 'topleft',
+                size: 'large'
+          });
+        });
+      {% endfor %}
+
+    </script>
+    </div>
+    <br>
+  <div class="flexc container">
+    {% for policy1 in current_policies1 %}
+    {% if policy1["status"] == "Covered" %}
+    <span id={{policy1["id"]}} class="tippy item covered text-center">
+
+          <img class="proj-cover-img img-responsive center-block"
+               src={{policy1["url"]}} width="90" height="90">
+          <h4>{{policy1["title"]}}</h4>
+          <h4><span class="label label-success">{{policy1["status"]}}</span></h4>
+        </span>
+
+    {% elif policy1["status"] == "Undercovered" %}
+    <span id={{policy1["id"]}} class="tippy item undercovered text-center">
+
+          <img class="proj-cover-img img-responsive center-block"
+               src={{policy1["url"]}} width="90" height="90">
+          <h4>{{policy1["title"]}}</h4>
+          <h4><span class="label label-warning">{{policy1["status"]}}</span></h4>
+        </span>
+    {% else %}
+    <span id={{policy1["id"]}} class="tippy item notcovered text-center">
+
+          <img class="proj-cover-img img-responsive center-block"
+               src={{policy1["url"]}} width="90" height="90">
+          <h4>{{policy1["title"]}}</h4>
+          <h4><span class="label label-danger">{{policy1["status"]}}</span></h4>
+        </span>
+    {% endif %}
+
+    <div id={{policy1["id2"]}} class="hover-div">
+      <div class="hover-div-row text-center">
+        <div class="hover-div-item2">
+          <img class="proj-cover-img img-responsive center-block"
+               src="../static/img/compare.png" width="70" height="80">
+        </div>
+        <div class="hover-div-item2">
+          <img class="proj-cover-img img-responsive center-block"
+               src="../static/img/compare1.svg" width="90" height="90">
+        </div>
+      </div>
+      <div class="hover-div-row text-center">
+        <div class="hover-div-item2">
+          <b>You</b>
+        </div>
+        <div class="hover-div-item2">
+          <b>People Like You</b>
+        </div>
+      </div>
+      <div class="hover-div-row text-center">
+        <div class="hover-div-item2">
+          {{policy1["coverage-you"]}}
+        </div>
+        <div class="hover-div-item2">
+          {{policy1["coverage-others"]}}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+
+    <script type="text/javascript">
+
+      {% for policy1 in current_policies1 %}
+        {% set pid = "#" + policy1["id"] %}
+        $(document).ready(function() {
+          Tipped.create('{{pid}}', {
+                inline: '{{policy1["id2"]}}',
                 skin: 'light',
                 radius: false,
                 padding: false,

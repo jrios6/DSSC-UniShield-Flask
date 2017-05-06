@@ -1,6 +1,6 @@
 from flask import (Flask, render_template, redirect,
                    url_for, request, make_response)
-from insurance_policies_data import RECOMMENDED_POLICIES, RECOMMENDED_POLICIES1, CURRENT_POLICIES
+from insurance_policies_data import RECOMMENDED_POLICIES, RECOMMENDED_POLICIES1, CURRENT_POLICIES, CURRENT_POLICIES1
 
 app = Flask(__name__)
 
@@ -31,6 +31,7 @@ def buypolicies():
 def mypolicies():
     return render_template('mypolicies.html',
         current_policies=CURRENT_POLICIES,
+        current_policies1=CURRENT_POLICIES1,
         n_status=["", "active", "", ""])
 
 @app.route('/bot')
