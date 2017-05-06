@@ -7,6 +7,11 @@ app = Flask(__name__)
 
 
 @app.route('/')
+def home():
+    return render_template('profile.html',
+        n_status=["active", "", "", ""])
+
+@app.route('/start')
 def start():
     return render_template('start.html')
 
