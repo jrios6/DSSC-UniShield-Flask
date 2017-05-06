@@ -1,4 +1,44 @@
 {% extends "base.html" %}
 
 {% block cssblock %}
-<link href="../static/css/profile.css" rel="stylesheet"> {% endblock %} {% block content %} {% endblock %}
+<link href="../static/css/mypolicies.css" rel="stylesheet">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+</script>
+{% endblock %}
+
+{% block content %}
+<main>
+<div class="container">
+  <div id="donutchart" style="width: 900px; height: 500px;"></div>
+  <div class="flexc container">
+    {% for policy in current_policies %}
+    <div class="item text-center">
+      <h4>{{policy["title"]}}</h4>
+      <p>{{policy["status"]}}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

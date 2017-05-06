@@ -1,0 +1,17 @@
+.container {
+
+}
+
+.flexc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container .item {
+  margin: 10px;
+  padding: 10px;
+  background-color: #D8D8D8;
+  width: 200px;
+  height: 200px;
+}
