@@ -11,6 +11,11 @@
   display: flex;
 }
 
+.hover-div-main {
+  width: 200px;
+  height: 130px;
+}
+
 .hover-div-item {
   width: 100px;
   height: 100px;
