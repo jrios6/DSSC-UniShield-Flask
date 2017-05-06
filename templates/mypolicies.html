@@ -78,20 +78,29 @@
   <div class="flexc container">
     {% for policy in current_policies %}
       {% if policy["status"] == "Covered" %}
-        <span id={{policy["id"]}} class="tippy item covered text-center" title="I'm a tooltip!">
+        <span id={{policy["id"]}} class="tippy item covered text-center">
+
+          <img class="proj-cover-img img-responsive center-block"
+               src={{policy["url"]}} width="90" height="90">
           <h4>{{policy["title"]}}</h4>
-          <p>{{policy["status"]}}</p>
+          <h4><span class="label label-success">{{policy["status"]}}</span></h4>
         </span>
 
       {% elif policy["status"] == "Undercovered" %}
-        <span id={{policy["id"]}} class="item undercovered text-center">
+        <span id={{policy["id"]}} class="tippy item undercovered text-center">
+
+          <img class="proj-cover-img img-responsive center-block"
+               src={{policy["url"]}} width="90" height="90">
           <h4>{{policy["title"]}}</h4>
-          <p>{{policy["status"]}}</p>
+          <h4><span class="label label-warning">{{policy["status"]}}</span></h4>
         </span>
       {% else %}
-        <span id={{policy["id"]}} class="item notcovered text-center">
+        <span id={{policy["id"]}} class="tippy item notcovered text-center">
+
+          <img class="proj-cover-img img-responsive center-block"
+               src={{policy["url"]}} width="90" height="90">
           <h4>{{policy["title"]}}</h4>
-          <p>{{policy["status"]}}</p>
+          <h4><span class="label label-danger">{{policy["status"]}}</span></h4>
         </span>
       {% endif %}
 

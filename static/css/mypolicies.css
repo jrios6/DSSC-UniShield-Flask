@@ -47,17 +47,26 @@
   margin: 10px;
   padding: 10px;
   width: 200px;
-  height: 200px;
+  height: 180px;
 }
 
 .covered {
-  background-color: #A4D371;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #109335;
+  background-color: #ffffff;
 }
 
-.uncovered {
-  background-color: #D8D8D8;
+.undercovered {
+      border-style: solid;
+      border-width: 2px;
+      border-color: #f7b44a;
+    background-color: #ffffff;
 }
 
 .notcovered {
-  background-color: #D8D8D8;
+      border-style: solid;
+      border-width: 2px;
+      border-color: #e81717;
+    background-color: #ffffff;
 }
