@@ -1,0 +1,31 @@
+.col-sm-4 {
+  padding-top: 8px;
+  padding-bottom: 20px;
+}
+.item {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.details-p {
+  display: inline-block;
+}
+
+.description {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.btn1 {
+    float: left;
+    width: 49%;
+}
+
+.btn2 {
+    float: right;
+    width: 49%;
+}
+
+.btn-row {
+  margin-top: 6px;
+}
