@@ -2,6 +2,24 @@
 
 }
 
+.hover-div {
+  display: none;
+  margin: 20px;
+}
+
+.hover-div-row {
+  display: flex;
+}
+
+.hover-div-item {
+  width: 100px;
+  height: 100px;
+}
+
+.hover-div-item2 {
+  width: 100px;
+}
+
 .charts {
   margin-top: -35px;
   margin-bottom: -10px;

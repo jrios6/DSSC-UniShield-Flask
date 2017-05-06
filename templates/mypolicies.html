@@ -59,6 +59,11 @@
 </script>
 {% endblock %}
 
+{% block xblock %}
+<script type="text/javascript" src="../static/js/tipped/tipped.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/js/tipped/tipped.css"/>
+{% endblock %}
+
 {% block content %}
 <main>
 <div class="container">
@@ -73,22 +78,61 @@
   <div class="flexc container">
     {% for policy in current_policies %}
       {% if policy["status"] == "Covered" %}
-        <div class="item covered text-center">
+        <span id={{policy["id"]}} class="tippy item covered text-center" title="I'm a tooltip!">
           <h4>{{policy["title"]}}</h4>
           <p>{{policy["status"]}}</p>
-        </div>
+        </span>
+
       {% elif policy["status"] == "Undercovered" %}
-        <div class="item undercovered text-center">
+        <span id={{policy["id"]}} class="item undercovered text-center">
           <h4>{{policy["title"]}}</h4>
           <p>{{policy["status"]}}</p>
-        </div>
+        </span>
       {% else %}
-        <div class="item notcovered text-center">
+        <span id={{policy["id"]}} class="item notcovered text-center">
           <h4>{{policy["title"]}}</h4>
           <p>{{policy["status"]}}</p>
-        </div>
+        </span>
       {% endif %}
+
+      <div id={{policy["id2"]}} class="hover-div">
+        <div class="hover-div-row text-center">
+          <div class="hover-div-item">
+            You
+          </div>
+          <div class="hover-div-item">
+            People Like You
+          </div>
+        </div>
+        <div class="hover-div-row text-center">
+          <div class="hover-div-item2">
+            {{policy["coverage-you"]}}
+          </div>
+          <div class="hover-div-item2">
+            {{policy["coverage-others"]}}
+          </div>
+        </div>
+      </div>
     {% endfor %}
+
+    <script type="text/javascript">
+      {% for policy in current_policies %}
+        {% set pid = "#" + policy["id"] %}
+        $(document).ready(function() {
+          Tipped.create('{{pid}}', {
+                inline: '{{policy["id2"]}}',
+                skin: 'light',
+                radius: false,
+                padding: false,
+                position: 'topleft',
+                size: 'large'
+          });
+        });
+      {% endfor %}
+    </script>
+
   </div>
 </div>
+
+
 {% endblock %}

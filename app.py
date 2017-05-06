@@ -1,12 +1,9 @@
 from flask import (Flask, render_template, redirect,
                    url_for, request, make_response)
-from insurance_policies_data import POLICIES
+from insurance_policies_data import RECOMMENDED_POLICIES, CURRENT_POLICIES
 
 app = Flask(__name__)
 
-item1 = dict()
-item1["title"] = "Personal Accident"
-item1["status"] = "Covered"
 
 
 @app.route('/')
@@ -21,13 +18,13 @@ def profile():
 @app.route('/buypolicies')
 def buypolicies():
     return render_template('buypolicies.html',
-        recommended_items=POLICIES,
+        recommended_items=RECOMMENDED_POLICIES,
         n_status=["", "", "active", ""])
 
 @app.route('/mypolicies')
 def mypolicies():
     return render_template('mypolicies.html',
-        current_policies=[item1, item1, item1, item1, item1, item1, item1, item1, item1, item1],
+        current_policies=CURRENT_POLICIES,
         n_status=["", "active", "", ""])
 
 @app.route('/bot')

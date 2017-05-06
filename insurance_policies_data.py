@@ -26,4 +26,40 @@ item3["coverage"] = "$3000 or $1500 sum assured"
 item3["pricing"] = "Starting from $15/yr"
 item3["recommend"] = "Recommended because of Dengue Danger Level of home address"
 
-POLICIES = [item1, item2, item3]
+RECOMMENDED_POLICIES = [item1, item2, item3]
+
+
+cp1 = dict()
+cp1["id"] = "PA1"
+cp1["id2"] = "PA2"
+cp1["title"] = "Personal Accident"
+cp1["status"] = "Covered"
+cp1["coverage-you"] = "$12000"
+cp1["coverage-others"] = "$40000"
+
+cp2 = dict()
+cp2["id"] = "D1"
+cp2["id2"] = "D2"
+cp2["title"] = "Death"
+cp2["status"] = "Covered"
+cp2["coverage-you"] = "$4000"
+cp2["coverage-others"] = "$19000"
+
+cp3 = dict()
+cp3["id"] = "TL1"
+cp3["id2"] = "TL2"
+cp3["title"] = "Term Life"
+cp3["status"] = "Covered"
+cp3["coverage-you"] = "$5000"
+cp3["coverage-others"] = "$60000"
+
+cp4 = dict()
+cp4["id"] = "ML1"
+cp4["id2"] = "ML2"
+cp4["title"] = "Mosquito"
+cp4["status"] = "Uncovered"
+cp4["coverage-you"] = "$3000"
+cp4["coverage-others"] = "$1000"
+
+
+CURRENT_POLICIES = [cp1, cp2, cp3, cp4]
