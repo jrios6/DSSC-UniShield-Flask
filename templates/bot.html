@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://unpkg.com/botframework-webchat/botchat.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="bot"/>
+    <script src="https://unpkg.com/botframework-webchat/botchat.js"></script>
+    <script>
+      BotChat.App({
+        directLine: { secret: 'XcVOa8zDq6M.cwA.5fI.p65Paor0BJxAEyBgyXrKjf8a_HnI0BCzas4kLF_KnJE' },
+        user: { id: 'userid' },
+        bot: { id: 'botid' },
+        resize: 'detect'
+      }, document.getElementById("bot"));
+    </script>
+  </body>
+</html>
