@@ -54,8 +54,8 @@ cp1["id2"] = "PA2"
 cp1["title"] = "Death"
 cp1["url"] = "../static/img/death.png"
 cp1["status"] = "Covered"
-cp1["coverage-you"] = "$12000"
-cp1["coverage-others"] = "$40000"
+cp1["coverage-you"] = "$32,000"
+cp1["coverage-others"] = "$32,000"
 
 cp2 = dict()
 cp2["id"] = "D1"
@@ -63,8 +63,8 @@ cp2["id2"] = "D2"
 cp2["title"] = "Personal Accident"
 cp2["url"] = "../static/img/accident.png"
 cp2["status"] = "Covered"
-cp2["coverage-you"] = "$4000"
-cp2["coverage-others"] = "$19000"
+cp2["coverage-you"] = "$18,000"
+cp2["coverage-others"] = "$18,500"
 
 cp3 = dict()
 cp3["id"] = "TL1"
@@ -72,8 +72,8 @@ cp3["id2"] = "TL2"
 cp3["title"] = "Permanent Disability"
 cp3["url"] = "../static/img/disability.png"
 cp3["status"] = "Covered"
-cp3["coverage-you"] = "$5000"
-cp3["coverage-others"] = "$60000"
+cp3["coverage-you"] = "$40,000"
+cp3["coverage-others"] = "$40,000"
 
 cp4 = dict()
 cp4["id"] = "ML1"
@@ -81,8 +81,8 @@ cp4["id2"] = "ML2"
 cp4["title"] = "Hospitalisation"
 cp4["url"] = "../static/img/hospital.png"
 cp4["status"] = "Covered"
-cp4["coverage-you"] = "$3000"
-cp4["coverage-others"] = "$1000"
+cp4["coverage-you"] = "$3,000"
+cp4["coverage-others"] = "$2,500"
 
 cp5 = dict()
 cp5["id"] = "AL1"
@@ -90,8 +90,8 @@ cp5["id2"] = "AL2"
 cp5["title"] = "Temporary Disability"
 cp5["url"] = "../static/img/broken.png"
 cp5["status"] = "Undercovered"
-cp5["coverage-you"] = "$3000"
-cp5["coverage-others"] = "$1000"
+cp5["coverage-you"] = "$2,000"
+cp5["coverage-others"] = "$5,000"
 
 cp6 = dict()
 cp6["id"] = "BL1"
@@ -99,8 +99,8 @@ cp6["id2"] = "BL2"
 cp6["title"] = "Dengue Fever"
 cp6["url"] = "../static/img/mozzy.png"
 cp6["status"] = "Uncovered"
-cp6["coverage-you"] = "$3000"
-cp6["coverage-others"] = "$1000"
+cp6["coverage-you"] = "None"
+cp6["coverage-others"] = "$1,000"
 
 cp7 = dict()
 cp7["id"] = "CL1"
@@ -108,8 +108,8 @@ cp7["id2"] = "CL2"
 cp7["title"] = "Mobility"
 cp7["url"] = "../static/img/mobility.png"
 cp7["status"] = "Uncovered"
-cp7["coverage-you"] = "$3000"
-cp7["coverage-others"] = "$1000"
+cp7["coverage-you"] = "None"
+cp7["coverage-others"] = "$2,000"
 
 
 CURRENT_POLICIES = [cp1, cp2, cp3, cp4, cp5, cp6, cp7]
