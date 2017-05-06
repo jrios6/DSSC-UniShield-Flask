@@ -4,22 +4,31 @@ from insurance_policies_data import POLICIES
 
 app = Flask(__name__)
 
+item1 = dict()
+item1["title"] = "Personal Accident"
+item1["status"] = "Covered"
+
+
 @app.route('/')
 def start():
     return render_template('start.html')
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    return render_template('profile.html',
+        n_status=["active", "", "", ""])
 
 @app.route('/buypolicies')
 def buypolicies():
     return render_template('buypolicies.html',
-        recommended_items=POLICIES)
+        recommended_items=POLICIES,
+        n_status=["", "", "active", ""])
 
 @app.route('/mypolicies')
 def mypolicies():
-    return render_template('mypolicies.html')
+    return render_template('mypolicies.html',
+        current_policies=[item1, item1, item1, item1, item1, item1, item1, item1, item1, item1],
+        n_status=["", "active", "", ""])
 
 @app.route('/bot')
 def bot():

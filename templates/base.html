@@ -23,10 +23,10 @@
             <a class="navbar-brand" href="{{ url_for('start') }}"><span><img src="../static/img/shield.png" width="24" height="23"></span><strong>UniShield</strong></a>
           </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ url_for('profile') }}">Profile</a></li>
-            <li><a href="{{ url_for('mypolicies') }}">My Policies</a></li>
-            <li><a href="{{ url_for('buypolicies') }}">Buy Policies</a></li>
-            <li><a href="#">My Claims</a></li>
+            <li class={{n_status[0]}}><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li class={{n_status[1]}}><a href="{{ url_for('mypolicies') }}">My Policies</a></li>
+            <li class={{n_status[2]}}><a href="{{ url_for('buypolicies') }}">Buy Policies</a></li>
+            <li class={{n_status[3]}}><a href="#">My Claims</a></li>
           </ul>
         </div>
       </nav>
