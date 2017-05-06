@@ -26,7 +26,25 @@ item3["coverage"] = "$3000 or $1500 sum assured"
 item3["pricing"] = "Starting from $15/yr"
 item3["recommend"] = "Recommended because of Dengue Danger Level of home address"
 
-RECOMMENDED_POLICIES = [item1, item2, item3]
+item4 = dict()
+item4["url"] = "../static/img/sick_kid.jpg"
+item4["title"] = "Hospitalisation Insurance"
+item4["htitle"] = "#Hospitalisation Insurance"
+item4["summary"] = "The hospitalisastion insurance keeps you protected so you don't have to worry about anything! "
+item4["coverage"] = "$5000 or $7500 sum assured"
+item4["pricing"] = "Starting from $18/yr"
+item4["recommend"] = "Recommended because of recent medical history"
+
+item5 = dict()
+item5["url"] = "../static/img/boy_crutch.jpg"
+item5["title"] = "Disability Insurance"
+item5["htitle"] = "#Disability Insurance"
+item5["summary"] = "The disability insurance covers you in every possible situation "
+item5["coverage"] = "$7500 or $10000 sum assured"
+item5["pricing"] = "Starting from $20/yr"
+item5["recommend"] = "Recommended because prevention is always better than cure"
+
+RECOMMENDED_POLICIES = [item1, item2, item3, item4, item5]
 
 
 cp1 = dict()
