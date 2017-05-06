@@ -3,12 +3,18 @@
 {% block cssblock %}
 <link href="../static/css/mypolicies.css" rel="stylesheet">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
+  <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function Title_center(){
+      var title_chart=$("#payer_chart_div svg g").find('text').html();
+      $("#payer_chart_div svg").find('g:first').html('<text text-anchor="start" x="500" y="141" font-family="Arial" font-size="18" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">'+title_chart+'</text>');
+    }
+
+    function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
+          ['Premium', 'Amount'],
           ['Work',     11],
           ['Eat',      2],
           ['Commute',  2],
@@ -17,20 +23,36 @@
         ]);
 
         var options = {
-          title: 'My Daily Activities',
-          pieHole: 0.4,
+          legend: {position:'none'},
+          pieHole: 0.6,
+          title: "Hello"
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
+        var chart1 = new google.visualization.PieChart(document.getElementById('premiumchart'));
+        google.visualization.events.addListener(chart1, 'ready', Title_center);
+
+        chart1.draw(data, options);
+
+        var chart2 = new google.visualization.PieChart(document.getElementById('coveragechart'));
+        chart2.draw(data, options);
       }
+
 </script>
 {% endblock %}
 
 {% block content %}
 <main>
 <div class="container">
-  <div id="donutchart" style="width: 900px; height: 500px;"></div>
+  <div class="charts text-center">
+    <div class="chartitem">
+      <div id="premiumchart"></div>
+      <h5>Premiums Per Annum</h5>
+    </div>
+    <div class="chartitem">
+      <div id="coveragechart"></div>
+      <h5>Coverage Strength</h5>
+    </div>
+  </div>
   <div class="flexc container">
     {% for policy in current_policies %}
     <div class="item text-center">

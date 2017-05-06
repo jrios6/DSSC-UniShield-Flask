@@ -2,6 +2,21 @@
 
 }
 
+.charts {
+  display: flex;
+  justify-content: center;
+}
+
+#premiumchart {
+  width: 500px;
+  height: 500px;
+}
+
+#coveragechart {
+  width: 500px;
+  height: 500px;
+}
+
 .flexc {
   display: flex;
   flex-wrap: wrap;
