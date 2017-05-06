@@ -11,19 +11,22 @@
 <main>
 {% for item in recommended_items %}
 <div class="col-sm-4">
+    <div class="panel panel-default">
+        <div class="panel-body">
   <div class="item">
     <img class="proj-cover-img img-responsive center-block"
-      src={{item["url"]}}>
+      src={{item["url"]}} width="320" height="250">
       <h4 class="text-center">{{item["title"]}}</h4>
-      <p class="description text-center">{{item["summary"]}}</p>
-      <div class="details-div col-sm-7 text-left">{{item["coverage"]}}</div>
-      <div class="col-sm-5 text-right details-div">{{item["pricing"]}}</div>
+      <div class="details-div col-sm-3 text-left"></div>
+      <div class="col-sm-9 text-right details-div">{{item["pricing"]}}</div>
       <div class ="btn-row col-sm-12 text-center">
         <button type="button" class="btn1 btn btn-primary"
           data-toggle="modal" data-target={{item["htitle"]}}>View Details</button>
-        <button type="button" class="btn2 btn btn-primary">Buy Now</button>
+        <button type="button" class="btn2 btn btn-success">Buy Now</button>
       </div>
   </div>
+            </div>
+        </div>
 </div>
 
 <div class="modal fade" id={{item["title"]}} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -38,8 +41,8 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Buy Now</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button>
             </div>
         </article>
     </div>
