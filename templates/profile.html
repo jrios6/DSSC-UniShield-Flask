@@ -8,6 +8,7 @@
 <link href="../static/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 <script src="../static/bootstrap-editable/js/bootstrap-editable.min.js"></script>
 <script src="../static/main.js"></script>
+<script src="../static/moment.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -39,6 +40,9 @@
                 <div class="alert alert-info" role="alert">
                     <a href="#" class="alert-link"><span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Add your occupation</a>
                 </div>
+                <div class="alert alert-info" role="alert">
+                    <a href="#" class="alert-link"><span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Add your medications</a>
+                </div>
             </div>
         </div>
         <div class="panel panel-default">
@@ -47,32 +51,64 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <p><strong>Name:</strong> Leow Yao Yang</p>
-                <p><strong>Gender:</strong> Male</p>
-                <p><strong>Date of Birth:</strong> 26 September 1994</p>
-
-                <div>
-                    <span>Username:</span>
-                    <a href="#" id="username" data-type="text" data-placement="right" data-title="Enter username">superuser</a>
-                </div>
-
-                <div>
-                    <span>Status:</span>
-                    <a href="#" id="status"></a>
-                </div>
 
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th class="col-md-1"></th>
+                        <th class="col-md-2"></th>
                         <th class="col-md-5"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td><strong>Name</strong></td>
-                        <td>Leow Yao Yang</td>
+                        <td><a href="#" id="name" data-type="text" data-placement="right">Leow Yao Yang</a></td>
                     </tr>
+                    <tr>
+                        <td><strong>Gender</strong></td>
+                        <td><a href="#" id="gender">Male</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date of Birth</strong></td>
+                        <td><a href="#" id="dob" data-type="combodate" data-value="1994-09-26"></a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Address</strong></td>
+                        <td><a href="#" id="address" data-type="text" data-placement="right">Blk 180, Lompang Road</a></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong> Work and Lifestyle </strong>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th class="col-md-2"></th>
+                        <th class="col-md-5"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><strong>Occupation</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Smoking status</strong></td>
+                        <td><a href="#" id="smoke">Non-smoker</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marital status</strong></td>
+                        <td><a href="#" id="marry">Single</a></td>
+                    </tr>
+
                     </tbody>
                 </table>
             </div>
