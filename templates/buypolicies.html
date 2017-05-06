@@ -1,80 +1,81 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block cssblock %}
+<link href="../static/css/buypolicies.css" rel="stylesheet"> {% endblock %} {% block content %}
 
-{% block cssblock %}
-<link href="../static/css/buypolicies.css" rel="stylesheet">
-
-{% endblock %}
-
-{% block content %}
-
-<div class="container">
-  <h1 class="text-center">Recommended For You</h1>
+<div class="container-fluid">
+    <h1 class="text-center">Recommended For You</h1>
 </div>
 <main>
-{% for item in recommended_items %}
-<div class="col-sm-4">
-    <div class="panel panel-default">
-        <div class="panel-body">
-  <div class="item">
-    <img class="proj-cover-img img-responsive center-block"
-      src={{item["url"]}} width="320" height="250">
-      <h4 class="text-center">{{item["title"]}}</h4>
-      <div class="details-div col-sm-3 text-left"></div>
-      <div class="col-sm-9 text-right details-div"><i>{{item["pricing"]}}</i></div>
-      <div class ="btn-row col-sm-12 text-center">
-        <button type="button" class="btn1 btn btn-primary"
-          data-toggle="modal" data-target={{item["htitle"]}}>View Details</button>
-        <button type="button" class="btn2 btn btn-success">Buy Now</button>
-      </div>
-  </div>
+    {% for item in recommended_items %}
+    {% set ilen = recommended_items.index(item) + 1%}
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="item">
+                    <img class="proj-cover-img img-responsive center-block" src={{item[ "url"]}} width="320" height="250">
+                    <h4 class="text-center">{{item["title"]}}</h4>
+                    <div class="details-div col-sm-3 text-left"></div>
+                    <div class="col-sm-9 text-right details-div"><i>{{item["pricing"]}}</i></div>
+                    <div class="btn-row col-sm-12 text-center">
+                        <button type="button" class="btn1 btn btn-primary" data-toggle="modal" data-target={{item[ "htitle"]}}>View Details</button>
+                        <button type="button" class="btn2 btn btn-success">Buy Now</button>
+                    </div>
+                </div>
             </div>
         </div>
-</div>
-
-<div class="modal fade" id={{item["title"]}} tabindex="-1" role="dialog" aria-labelledby="ViewDetailsModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <article class="modal-content">
-            <div class="modal-header text-center">
-                <h3 class="modal-title">{{item["title"]}}</h3>
-            </div>
-            <div class="modal-body">
-                {{item["summary"]}}
-                <br>
-                <br>
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th class="col-md-1 text-center">Provider</th>
-                        <th class="col-md-1 text-center">Coverage</th>
-                        <th class="col-md-2 text-center">Start Date</th>
-                        <th class="col-md-2 text-center"> Purchase</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td class="text-center">AIA</td>
-                        <td class="text-center">$1,500</td>
-                        <td class="text-center"><input class="tbl_input" type="date" value="2017-05-07"></td>
-                        <td class="text-center"><button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button></td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">Prudential</td>
-                        <td class="text-center">$3,000</td>
-                        <td class="text-center"><input class="tbl_input" type="date" value="2017-05-07"></td>
-                        <td class="text-center"><button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button></td>
-                    </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="modal-footer">
-                <p class="text-muted text-left"><small><i>{{item["recommend"]}}</i></small></p>
-            </div>
-        </article>
     </div>
+
+    <div class="modal fade" id={{item[ "title"]}} tabindex="-1" role="dialog" aria-labelledby="ViewDetailsModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <article class="modal-content">
+                <div class="modal-header text-center">
+                    <h3 class="modal-title">{{item["title"]}}</h3>
+                </div>
+                <div class="modal-body">
+                    {{item["summary"]}}
+                    <br>
+                    <br>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1 text-center">Provider</th>
+                                <th class="col-md-1 text-center">Coverage</th>
+                                <th class="col-md-2 text-center">Start Date</th>
+                                <th class="col-md-2 text-center"> Purchase</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">AIA</td>
+                                <td class="text-center">$1,500</td>
+                                <td class="text-center"><input class="tbl_input" type="date" value="2017-05-07"></td>
+                                <td class="text-center"><button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Prudential</td>
+                                <td class="text-center">$3,000</td>
+                                <td class="text-center"><input class="tbl_input" type="date" value="2017-05-07"></td>
+                                <td class="text-center"><button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="modal-footer">
+                    <p class="text-muted text-left"><small><i>{{item["recommend"]}}</i></small></p>
+                </div>
+            </article>
+        </div>
+    </div>
+<<<<<<< HEAD
 </div>
 {% endfor %}
+=======
+    {% if ilen % 3 == 0 %}
+    <div class="clearfix"></div>
+    {% endif %}
+    {% endfor %}
+>>>>>>> origin/master
 
 </main>
 {% endblock %}
