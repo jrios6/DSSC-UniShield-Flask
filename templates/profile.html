@@ -9,18 +9,36 @@
     <div class="col-sm-3 col-lg-2">
       <nav class="navbar navbar-default navbar-fixed-side">
          <ul class="nav navbar-nav">
-          <li class="active"><a href="#">General</a></li>
-          <li><a href="#">Medical History</a></li>
-          <li><a href="#">Family History</a></li>
-          <li><a href="#">Medications</a></li>
-          <li><a href="#">Allergies</a></li>
+          <li class="active"><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="false"></span> General</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-hourglass" aria-hidden="false"></span> Medical History</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="false"></span> Family History</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-tint" aria-hidden="false"></span> Medications</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-cutlery" aria-hidden="false"></span> Allergies</a></li>
         </ul>
       </nav>
     </div>
-    <div class="col-sm-9 col-lg-10">
-      <h4>Leow Yao Yang</h4>
-      <h4>Age: 23</h4>
-      <h4>Profile Strength: Basic</h4>
+    <div class="col-sm-9 col-lg-8">
+    <br>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong> Basic Info </strong>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <p><strong>Name:</strong> Leow Yao Yang</p>
+          <p><strong>Gender:</strong> Male</p>
+          <p><strong>Date of Birth:</strong> 26 September 1994</p>
+          <p><strong>Profile Strength:</strong> Basic</p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span class="sr-only">40% Complete (success)</span>
+          </div>
+        </div>
+        <div class="alert alert-info" role="alert">
+          <a href="#" class="alert-link"><span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Add your occupation</a>
+        </div>
+      </div>
     </div>
+
   </div>
 {% endblock %}
