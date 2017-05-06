@@ -45,6 +45,7 @@ item5["pricing"] = "Starting from $20/yr"
 item5["recommend"] = "Recommended because prevention is always better than cure"
 
 RECOMMENDED_POLICIES = [item1, item2, item3]
+RECOMMENDED_POLICIES1 = [item4, item5]
 
 
 cp1 = dict()
