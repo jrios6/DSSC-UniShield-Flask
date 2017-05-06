@@ -3,18 +3,20 @@
 }
 
 .charts {
+  margin-top: -35px;
+  margin-bottom: -10px;
   display: flex;
   justify-content: center;
 }
 
 #premiumchart {
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
 }
 
 #coveragechart {
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
 }
 
 .flexc {
@@ -26,7 +28,18 @@
 .container .item {
   margin: 10px;
   padding: 10px;
-  background-color: #D8D8D8;
   width: 200px;
   height: 200px;
+}
+
+.covered {
+  background-color: #A4D371;
+}
+
+.uncovered {
+  background-color: #D8D8D8;
+}
+
+.notcovered {
+  background-color: #D8D8D8;
 }
