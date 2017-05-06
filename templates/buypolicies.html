@@ -6,18 +6,45 @@
 
 {% block content %}
 <div class="container">
-  <h1 class="text-center">Recommended</h1>
+  <h1 class="text-center">Recommended For You</h1>
 </div>
-<main class="row text-center">
+<main>
+{% for item in recommended_items %}
 <div class="col-sm-4">
-  <img class="proj-cover-img img-responsive center-block"
-    src="../static/img/mosquitopicture.png"
-    data-toggle="modal" data-target="#project1">
-  <h4>Mosquito Insurance</h4>
-  <p>
-    Protection against Dengue fever, Zika fever, Chikungunya fever, Malaria & Yellow fever
-  </p>
+  <div class="item">
+    <img class="proj-cover-img img-responsive center-block"
+      src={{item["url"]}}>
+      <h4 class="text-center">{{item["title"]}}</h4>
+      <p class="description text-center">{{item["summary"]}}</p>
+      <div class="details-div col-sm-7 text-left">{{item["coverage"]}}</div>
+      <div class="col-sm-5 text-right details-div">{{item["pricing"]}}</div>
+      <div class ="btn-row col-sm-12 text-center">
+        <button type="button" class="btn1 btn btn-primary"
+          data-toggle="modal" data-target={{item["htitle"]}}>View Details</button>
+        <button type="button" class="btn2 btn btn-primary">Buy Now</button>
+      </div>
+  </div>
 </div>
-</main>
 
+<div class="modal fade" id={{item["title"]}} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <article class="modal-content">
+            <div class="modal-header text-center">
+                <h3 class="modal-title">{{item["title"]}}</h3>
+                <p>{{item["summary"]}}</p>
+            </div>
+            <div class="modal-body">
+                {{item["summary"]}}
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Buy Now</button>
+            </div>
+        </article>
+    </div>
+</div>
+{% endfor %}
+
+</main>
 {% endblock %}

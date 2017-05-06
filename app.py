@@ -1,7 +1,9 @@
 from flask import (Flask, render_template, redirect,
                    url_for, request, make_response)
+from insurance_policies_data import POLICIES
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def start():
@@ -13,7 +15,8 @@ def profile():
 
 @app.route('/buypolicies')
 def buypolicies():
-    return render_template('buypolicies.html')
+    return render_template('buypolicies.html',
+        recommended_items=POLICIES)
 
 @app.route('/mypolicies')
 def mypolicies():
