@@ -2,6 +2,9 @@
 
 {% block cssblock %}
 <link href="../static/css/profile.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../static/js/loading/wdtLoading.css">
+<script type="text/javascript" src="../static/js/loading/wdtLoading.js"></script>
+
 {% endblock %}
 
 {% block xblock %}
@@ -12,6 +15,30 @@
 {% endblock %}
 
 {% block content %}
+<div class="wdt-loading-screen">
+		<div class="wdt-loading-phrases">
+			<div class="wdt-loading-phrase-category" data-category="profile">
+				<div class="wdt-loading-phrase">Setting up profile...</div>
+				<div class="wdt-loading-phrase">Collecting insurance data...</div>
+				<div class="wdt-loading-phrase">Predicting recommendations...</div>
+				<div class="wdt-loading-phrase">Generating policy plans...</div>
+				<div class="wdt-loading-phrase">Checking coverage...</div>
+				<div class="wdt-loading-phrase">Calculating health risks...</div>
+			</div>
+
+		</div>
+
+	</div>
+  <script>
+  setTimeout(stopLoading, 4000);
+  wdtLoading.start({
+      category: 'profile',
+      speed: 700
+  });
+  function stopLoading() {
+    wdtLoading.done();
+  }
+  </script>
 <div class="row">
     <div class="col-sm-3 col-lg-2">
       <nav class="navbar navbar-default navbar-fixed-side">
