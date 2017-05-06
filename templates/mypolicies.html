@@ -3,42 +3,92 @@
 {% block cssblock %}
 <link href="../static/css/mypolicies.css" rel="stylesheet">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+  <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function Title_center(){
+      var title_chart=$("#payer_chart_div svg g").find('text').html();
+      $("#payer_chart_div svg").find('g:first').html('<text text-anchor="start" \
+        x="500" y="141" font-family="Arial" font-size="18" font-weight="bold" \
+        stroke="none" stroke-width="0" fill="#000000">'+"Premium Per Annum"+'</text>');
+    }
+
+    function drawChart() {
+        var premiumData = google.visualization.arrayToDataTable([
+          ['Premium', 'Amount'],
+          ['Personal Accident',     385],
+          ['Death',      90],
+          ['Term Life',  390],
+          ['Mosquito', 170],
         ]);
 
-        var options = {
-          title: 'My Daily Activities',
-          pieHole: 0.4,
+        var coverageData = google.visualization.arrayToDataTable([
+          ['Coverage Strength', 'Amount'],
+          ['Covered',     32],
+          ['Uncovered',      68],
+        ]);
+
+        var options1 = {
+          legend: {position:'none'},
+          pieHole: 0.6,
+          title: "Premiums Per Annum",
+          titleTextStyle: {fontSize: 17, bold: false, fontName: 'Arial'},
+          slices: [{color: '#817C7C'}, {color: '#62A8F9'}, {color: '#75B138'}, {color: '#EC5669'}],
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
+        var options2 = {
+          legend: {position:'none'},
+          pieHole: 0.6,
+          title: "Coverage Strength",
+          tooltip: {text:'percentage'},
+          titleTextStyle: {fontSize: 17, bold: false, fontName: 'Arial'},
+          slices: [{color: '#62A8F9'}, {color: '#E53F53'}],
+          pieStartAngle: 180,
+        };
+
+        var chart1 = new google.visualization.PieChart(document.getElementById('premiumchart'));
+        chart1.draw(premiumData, options1);
+        $("text:contains(" + options1.title + ")").attr({'x':'145', 'y':'410'})
+
+        var chart2 = new google.visualization.PieChart(document.getElementById('coveragechart'));
+        chart2.draw(coverageData, options2);
+        $("text:contains(" + options2.title + ")").attr({'x':'158', 'y':'408'})
       }
+
 </script>
 {% endblock %}
 
 {% block content %}
 <main>
 <div class="container">
-  <div id="donutchart" style="width: 900px; height: 500px;"></div>
+  <div class="charts text-center">
+    <div class="chartitem">
+      <div id="premiumchart"></div>
+    </div>
+    <div class="chartitem">
+      <div id="coveragechart"></div>
+    </div>
+  </div>
   <div class="flexc container">
     {% for policy in current_policies %}
-    <div class="item text-center">
-      <h4>{{policy["title"]}}</h4>
-      <p>{{policy["status"]}}</p>
-    </div>
+      {% if policy["status"] == "Covered" %}
+        <div class="item covered text-center">
+          <h4>{{policy["title"]}}</h4>
+          <p>{{policy["status"]}}</p>
+        </div>
+      {% elif policy["status"] == "Undercovered" %}
+        <div class="item undercovered text-center">
+          <h4>{{policy["title"]}}</h4>
+          <p>{{policy["status"]}}</p>
+        </div>
+      {% else %}
+        <div class="item notcovered text-center">
+          <h4>{{policy["title"]}}</h4>
+          <p>{{policy["status"]}}</p>
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
 </div>
-
 {% endblock %}
