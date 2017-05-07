@@ -11,6 +11,7 @@
   <h1 class="text-center">Recommended For You</h1>
 </div>
 <main>
+
     <div class="col-sm-12">
 {% for item in recommended_items %}
 <div class="col-sm-4">
@@ -56,7 +57,7 @@
                         <td class="text-center">AIA</td>
                         <td class="text-center">$1,500</td>
                         <td class="text-center"><input class="tbl_input" type="date" value="2017-05-07"></td>
-                        <td class="text-center"><button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button></td>
+                        <td class="text-center"><button id="myButton" type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button></td>
                     </tr>
                     <tr>
                         <td class="text-center">Prudential</td>
@@ -143,5 +144,10 @@
 </div>
 {% endfor %}
         </div>
+    <br>
+    <div class="col-sm-12 text-center alert alert-info" role="alert">
+        <a href="#" class="alert-link"><span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Load more</a>
+    </div>
+
 </main>
 {% endblock %}
