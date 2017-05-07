@@ -26,6 +26,7 @@ $(document).ready(function() {
            }
     });
     $('#address').editable();
+    $('#occupation').editable();
     $('#smoke').editable({
         type: 'select',
         placement: 'right',
@@ -38,11 +39,12 @@ $(document).ready(function() {
     $('#marry').editable({
         type: 'select',
         placement: 'right',
-        value: 1,
+        value: 2,
         source: [
-            {value: 1, text: 'Single'},
-            {value: 2, text: 'Engaged'},
-            {value: 3, text: 'Married'}
+            {value: 1, text: '---'},
+            {value: 2, text: 'Single'},
+            {value: 3, text: 'Engaged'},
+            {value: 4, text: 'Married'}
         ]
     });
 });
